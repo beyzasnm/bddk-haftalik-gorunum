@@ -75,3 +75,24 @@ jobs:
             git pull --rebase origin main
             git push origin HEAD:main
           fi
+      - name: GitHub Pages paketini hazırla
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist/treasury
+
+  publish:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: dashboard
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Hazine Satış ekranını yayımla
+        id: deployment
+        uses: actions/deploy-pages@v4
