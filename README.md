@@ -1,9 +1,8 @@
-# TCMB ve BDDK Veri Panosu
+# BDDK Haftalık Görünüm
 
-- [BDDK Haftalık Görünüm](https://beyzasnm.github.io/bddk-karar-takibi/) banka kredileri ve mevduat göstergelerini gösterir.
-- [EVDS Piyasa Görünümü](https://beyzasnm.github.io/bddk-karar-takibi/evds/) TCMB kur, fonlama, rezerv ve yabancı DİBS akımı serilerini gösterir.
+[BDDK panosunu aç](https://beyzasnm.github.io/bddk-karar-takibi/)
 
-İki ekran GitHub Pages üzerinden açılır ve saatlik olarak güncellenir.
+Kredi ve mevduat göstergeleri saatlik kontrol edilir ve GitHub Pages üzerinden yayımlanır.
 
 ## BDDK Veri Arşivi
 

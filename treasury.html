@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BDDK Haftalık Görünüm | TCMB ve BDDK Veri Panosu</title>
+<title>BDDK Haftalık Görünüm</title>
 <style>
 :root{color-scheme:light;--accent:#812556;--ink:#221e24;--muted:#57525a;--line:#dfdbe0}
 *{box-sizing:border-box}body{margin:0;background:#fff;color:var(--ink);font:15px system-ui,sans-serif}header{border-top:3px solid var(--accent);border-bottom:1px solid var(--line)}main,.mast{max-width:1280px;margin:auto;padding:18px 28px}.mast,.bar,.card-head{display:flex;justify-content:space-between;align-items:center;gap:16px}.mast h1{margin:0;font-size:24px}.mast p,.card p{margin:3px 0}.eyebrow,small,.muted{color:var(--muted);font-size:13px}.status{text-align:right}.notice{border-left:3px solid var(--accent);padding:7px 12px;background:#f8f6f7}.bar{margin:4px 0 12px}.controls{display:flex;gap:6px;flex-wrap:wrap}button,select{border:1px solid #aaa2ac;background:#fff;color:inherit;padding:7px 12px;font:inherit;border-radius:2px}button{cursor:pointer}button[aria-pressed=true]{border-color:var(--accent);color:var(--accent);font-weight:650}a,summary{color:var(--accent)}summary{cursor:pointer}a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}.groups,.cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}.groups h2{font-size:19px;margin:0 0 9px}.card,.comparison{border:1px solid var(--line);padding:13px;min-width:0}.card h3{margin:0;font-size:15px}.value{font-weight:700;font-size:clamp(16px,1.52vw,22px);font-variant-numeric:tabular-nums;white-space:nowrap}.value span{color:var(--accent)}.metrics{margin:8px 0;font-size:13px}.metrics strong{font-variant-numeric:tabular-nums}.chart{margin-top:10px;border-top:1px solid var(--line);padding-top:6px}.chart svg{display:block;width:100%;height:auto;touch-action:pan-y}.chart input{width:100%;accent-color:var(--accent);height:12px;margin:1px 0}.tip{border:1px solid var(--line);padding:6px 8px;margin-top:5px;font-size:12px;min-height:52px}.tip div+div{margin-top:3px}.card details{border-top:1px solid var(--line);padding-top:7px;margin-top:8px;font-size:12px}.comparison{margin-top:16px}.comparison h2{margin:0 0 8px;font-size:18px}.comparison .chart{max-width:750px}.comparison .chart svg{max-height:280px}.comparison label{display:inline-flex;align-items:center;gap:6px;margin:0 10px 6px 0}.comparison select{max-width:100%}footer{border-top:1px solid var(--line);margin-top:16px;padding-top:8px;font-size:12px;color:var(--muted)}[hidden]{display:none!important}@media(max-width:1050px){.groups{grid-template-columns:1fr}.value{font-size:21px}}@media(max-width:630px){.cards{grid-template-columns:1fr}.mast,.bar{align-items:flex-start;flex-direction:column}.status{text-align:left}main,.mast{padding:13px 15px}}
@@ -25,26 +25,10 @@
 .deposit-reference{grid-column:1/-1;margin:0;padding:6px 9px;border-left:2px solid #b8c3ce;color:var(--muted)}
 @media(max-width:460px){.groups>section{padding:8px}.metrics{grid-template-columns:1fr}}
 .period-deposit-split{border-top:1px solid var(--line);margin-top:8px;padding-top:7px}.period-deposit-split strong{font-variant-numeric:tabular-nums}
-.site-nav-wrap{border-bottom:1px solid var(--line)}
-.site-nav{display:flex;align-items:center;flex-wrap:wrap;gap:4px 20px;max-width:1280px;min-height:61px;margin:auto;padding:6px 28px;font-size:.88rem}
-.site-nav strong{margin-right:auto;color:#252029}
-.site-tabs{display:flex;gap:4px;align-items:center}
-.site-tabs a{display:inline-flex;align-items:center;min-height:40px;padding:0 11px;border-radius:4px;color:#5e6673;text-decoration:none;white-space:nowrap}
-.site-tabs a:hover{background:#f6f1f3;color:#721d3a}
-.site-tabs [aria-current=page]{background:#f0e4e9;color:#721d3a;font-weight:650}
-@media(max-width:630px){.site-nav{padding-inline:15px}}
-@media(max-width:440px){.site-nav{row-gap:1px}.site-nav strong{width:100%;padding-top:4px}.site-tabs a{padding-inline:9px}}
 </style>
 </head>
 <body>
 <header>
-  <div class="site-nav-wrap"><nav class="site-nav" aria-label="Veri panosu ekranları">
-    <strong>TCMB ve BDDK Veri Panosu</strong>
-    <div class="site-tabs">
-      <a href="./" aria-current="page">BDDK Haftalık</a>
-      <a href="https://beyzasnm.github.io/bddk-karar-takibi/evds/">EVDS Piyasa</a>
-    </div>
-  </nav></div>
   <div class="mast"><div><div class="eyebrow">HAZİNE SATIŞ · BANKACILIK SEKTÖRÜ</div><h1>BDDK Haftalık Görünüm</h1></div><div id="status" class="status"></div></div></header>
 <main>
 <div id="notice" class="notice" hidden></div>
