@@ -4,7 +4,7 @@ on:
     paths: [build_treasury.py, treasury.html, test_treasury.cjs, .github/workflows/treasury.yml]
   push:
     branches: [main]
-    paths: [build_treasury.py, treasury.html, test_treasury.cjs, .github/workflows/treasury.yml]
+    paths: [build_treasury.py, treasury.html, test_treasury.cjs, build_evds.py, evds.html, .github/workflows/treasury.yml]
   schedule:
     - cron: '37 * * * *'
   workflow_dispatch:
@@ -64,14 +64,19 @@ jobs:
               assert all(isinstance(value, float) for key in ('total', 'demand', 'term') for value in entry[key])
               print(f'Yıl geçişi {column}: toplam {entry["total"]}, vadeli {entry["term"]}, vadesiz {entry["demand"]}')
           PY
+      - name: EVDS Piyasa Görünümü'nü hazırla
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        env:
+          EVDS_API_KEY: ${{ secrets.EVDS_API_KEY }}
+        run: python build_evds.py
       - name: Gözlem ve revizyon arşivini kaydet
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add archive/treasury.json
+          git add archive/treasury.json archive/evds.json
           if ! git diff --cached --quiet; then
-            git commit -m "Hazine Satış BDDK gözlemlerini ve revizyonlarını kaydet"
+            git commit -m "Hazine Satış veri arşivlerini güncelle"
             git pull --rebase origin main
             git push origin HEAD:main
           fi
