@@ -4,19 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#f6f5f4">
-<title>EVDS Piyasa Görünümü</title>
+<title>EVDS Piyasa Görünümü | TCMB ve BDDK Veri Panosu</title>
 <style>
   :root { font-family: "Segoe UI", system-ui, sans-serif; color: #212631; background: #f6f5f4; font-variant-numeric: tabular-nums; --muted: #5e6673; --rule: #e3e0e0; --accent: #852546; }
   * { box-sizing: border-box; }
   body { margin: 0; border-top: 3px solid var(--accent); }
   .shell { width: min(1140px, calc(100% - 56px)); margin-inline: auto; }
   header { background: #fff; border-bottom: 1px solid var(--rule); }
-  nav { display: flex; align-items: center; gap: 24px; min-height: 61px; font-size: .88rem; }
-  nav strong { color: #252029; margin-right: auto; }
   a { color: var(--accent); text-underline-offset: 3px; }
-  nav a { color: var(--muted); text-decoration: none; }
-  nav a:hover { text-decoration: underline; }
-  nav [aria-current] { color: var(--accent); font-weight: 650; }
   .hero { display: flex; justify-content: space-between; align-items: end; gap: 20px; padding: 37px 0 25px; }
   h1 { font-size: clamp(1.8rem, 4vw, 2.7rem); letter-spacing: -.055em; margin: 0 0 8px; line-height: 1.09; }
   p { margin: 0; }
@@ -48,20 +43,29 @@
   :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   @media (max-width: 690px) {
     .shell { width: calc(100% - 30px); }
-    nav { gap: 13px; min-height: 54px; }
     .hero { align-items: start; flex-direction: column; padding-top: 25px; gap: 9px; }
     .last-check { text-align: left; }
     .last-check strong { display: inline; margin-right: 5px; }
     .grid { grid-template-columns: 1fr; }
   }
+.site-nav{display:flex;align-items:center;flex-wrap:wrap;gap:4px 20px;max-width:1280px;min-height:61px;margin:auto;padding:6px 28px;font-size:.88rem}
+.site-nav strong{margin-right:auto;color:#252029}
+.site-tabs{display:flex;gap:4px;align-items:center}
+.site-tabs a{display:inline-flex;align-items:center;min-height:40px;padding:0 11px;border-radius:4px;color:#5e6673;text-decoration:none;white-space:nowrap}
+.site-tabs a:hover{background:#f6f1f3;color:#721d3a}
+.site-tabs [aria-current=page]{background:#f0e4e9;color:#721d3a;font-weight:650}
+@media(max-width:630px){.site-nav{padding-inline:15px}}
+@media(max-width:440px){.site-nav{row-gap:1px}.site-nav strong{width:100%;padding-top:4px}.site-tabs a{padding-inline:9px}}
 </style>
 </head>
 <body>
 <header>
-  <nav class="shell" aria-label="Hazine Satış görünümleri">
-    <strong>Hazine Satış</strong>
-    <a href="../">BDDK Haftalık</a>
-    <a href="./" aria-current="page">EVDS Piyasa</a>
+  <nav class="site-nav" aria-label="Veri panosu ekranları">
+    <strong>TCMB ve BDDK Veri Panosu</strong>
+    <div class="site-tabs">
+      <a href="../">BDDK Haftalık</a>
+      <a href="./" aria-current="page">EVDS Piyasa</a>
+    </div>
   </nav>
 </header>
 <main class="shell">
