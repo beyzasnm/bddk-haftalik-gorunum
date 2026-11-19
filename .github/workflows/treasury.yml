@@ -21,6 +21,9 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v5
+        with:
+          # Main-branch retries must start from the current archive before writing it.
+          ref: ${{ github.run_attempt > 1 && github.ref == 'refs/heads/main' && 'main' || github.sha }}
       - uses: actions/setup-python@v6
         with:
           python-version: '3.13'
